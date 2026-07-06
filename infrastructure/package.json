@@ -1,0 +1,8 @@
+{
+  "name": "cos-data-infra",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "aws-cdk": "^2.150.0"
+  }
+}

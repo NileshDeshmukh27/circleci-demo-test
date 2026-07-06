@@ -1,0 +1,314 @@
+# =============================================================================
+# CircleCI Pipeline Accelerator — Reference Configuration
+# =============================================================================
+# A parameterized, governance-ready pipeline for AWS deployments via OIDC.
+#
+# Usage:
+#   1. Copy this file to your project's .circleci/config.yml
+#   2. Update the `parameters` section with your project specifics
+#   3. Configure CircleCI contexts (aws-oidc-dev, aws-oidc-staging, aws-oidc-prod)
+#   4. Push to trigger the pipeline
+#
+# See docs/usage.md for full customization guide.
+# =============================================================================
+
+version: 2.1
+
+# -----------------------------------------------------------------------------
+# Orbs — reusable packages of config
+# -----------------------------------------------------------------------------
+orbs:
+  aws-cli: circleci/aws-cli@4.1
+  # Provides aws-cli/setup command with OIDC role assumption
+  # No static credentials needed — uses CircleCI's OIDC token
+
+# -----------------------------------------------------------------------------
+# Pipeline Parameters — customize per project
+# -----------------------------------------------------------------------------
+parameters:
+  language:
+    type: string
+    default: "python"
+    description: "Runtime language: python | node | java | go | dotnet"
+  runtime-version:
+    type: string
+    default: "3.11"
+    description: "Language runtime version"
+  install-command:
+    type: string
+    default: "pip install -r requirements.txt"
+    description: "Command to install project dependencies"
+  lint-command:
+    type: string
+    default: "flake8 src/"
+    description: "Command to run linting/code style checks"
+  test-command:
+    type: string
+    default: "pytest tests/ --junitxml=test-results/results.xml"
+    description: "Command to run unit tests (should produce JUnit XML for CircleCI)"
+  build-command:
+    type: string
+    default: "zip -r package.zip src/"
+    description: "Command to build/package the deployment artifact"
+  scan-command:
+    type: string
+    default: "pip install bandit && bandit -r src/ -f json -o scan-results/bandit.json || true"
+    description: "Command to run security/static analysis (must not fail the build on findings)"
+  deploy-command-dev:
+    type: string
+    default: "echo 'Deploy to dev/sandbox — override this parameter'"
+    description: "Command to deploy to dev/sandbox environment"
+  deploy-command-staging:
+    type: string
+    default: "echo 'Deploy to staging — override this parameter'"
+    description: "Command to deploy to staging environment"
+  deploy-command-prod:
+    type: string
+    default: "echo 'Deploy to production — override this parameter'"
+    description: "Command to deploy to production environment"
+  cache-key-prefix:
+    type: string
+    default: "deps-v1"
+    description: "Cache key prefix (bump to invalidate caches)"
+  working-directory:
+    type: string
+    default: "."
+    description: "Project subdirectory if in a monorepo"
+  resource-class:
+    type: string
+    default: "medium"
+    description: "CircleCI resource class for jobs: small | medium | large | xlarge"
+
+# -----------------------------------------------------------------------------
+# Executors — runtime environments
+# -----------------------------------------------------------------------------
+executors:
+  default:
+    docker:
+      - image: cimg/python:<< pipeline.parameters.runtime-version >>
+    resource_class: << pipeline.parameters.resource-class >>
+    working_directory: ~/project/<< pipeline.parameters.working-directory >>
+
+# -----------------------------------------------------------------------------
+# Commands — reusable step sequences
+# -----------------------------------------------------------------------------
+commands:
+  checkout-and-attach:
+    description: "Checkout code and attach workspace"
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/project
+
+  install-dependencies:
+    description: "Install dependencies with caching"
+    steps:
+      - restore_cache:
+          keys:
+            - << pipeline.parameters.cache-key-prefix >>-{{ checksum "requirements.txt" }}
+            - << pipeline.parameters.cache-key-prefix >>-
+      - run:
+          name: Install dependencies
+          command: << pipeline.parameters.install-command >>
+      - save_cache:
+          key: << pipeline.parameters.cache-key-prefix >>-{{ checksum "requirements.txt" }}
+          paths:
+            - ~/.cache/pip
+            - ./venv
+
+  assume-aws-role:
+    description: "Assume AWS role via OIDC (no static credentials)"
+    parameters:
+      role-arn:
+        type: string
+        default: ${AWS_ROLE_ARN}
+      region:
+        type: string
+        default: ${AWS_REGION}
+    steps:
+      - aws-cli/setup:
+          role_arn: << parameters.role-arn >>
+          region: << parameters.region >>
+          role_session_name: "circleci-${CIRCLE_PROJECT_REPONAME}-${CIRCLE_BUILD_NUM}"
+
+# -----------------------------------------------------------------------------
+# Jobs
+# -----------------------------------------------------------------------------
+jobs:
+  # --- Quality Gate: Lint ---
+  lint:
+    executor: default
+    steps:
+      - checkout-and-attach
+      - install-dependencies
+      - run:
+          name: Run linter
+          command: << pipeline.parameters.lint-command >>
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+
+  # --- Quality Gate: Unit Tests ---
+  test:
+    executor: default
+    steps:
+      - checkout-and-attach
+      - install-dependencies
+      - run:
+          name: Run unit tests
+          command: << pipeline.parameters.test-command >>
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: test-results
+          destination: test-results
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+
+  # --- Quality Gate: Security Scan (mandatory, non-blocking) ---
+  security-scan:
+    executor: default
+    steps:
+      - checkout-and-attach
+      - install-dependencies
+      - run:
+          name: Run security/static analysis
+          command: |
+            mkdir -p scan-results
+            << pipeline.parameters.scan-command >>
+      - store_artifacts:
+          path: scan-results
+          destination: security-scan-results
+
+  # --- Build & Package ---
+  build:
+    executor: default
+    steps:
+      - checkout-and-attach
+      - install-dependencies
+      - run:
+          name: Build/package artifact
+          command: << pipeline.parameters.build-command >>
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+      - store_artifacts:
+          path: package.zip
+          destination: build-artifact
+
+  # --- Deploy: Dev/Sandbox ---
+  deploy-dev:
+    executor: default
+    steps:
+      - checkout-and-attach
+      - assume-aws-role
+      - run:
+          name: Deploy to dev/sandbox
+          command: << pipeline.parameters.deploy-command-dev >>
+
+  # --- Deploy: Staging ---
+  deploy-staging:
+    executor: default
+    steps:
+      - checkout-and-attach
+      - assume-aws-role
+      - run:
+          name: Deploy to staging
+          command: << pipeline.parameters.deploy-command-staging >>
+
+  # --- Deploy: Production ---
+  deploy-prod:
+    executor: default
+    steps:
+      - checkout-and-attach
+      - assume-aws-role
+      - run:
+          name: Deploy to production
+          command: << pipeline.parameters.deploy-command-prod >>
+
+# -----------------------------------------------------------------------------
+# Workflows — orchestration with governance gates
+# -----------------------------------------------------------------------------
+workflows:
+  # === Main CI/CD Pipeline ===
+  build-test-deploy:
+    jobs:
+      # --- Always run: quality gates ---
+      - lint:
+          filters:
+            branches:
+              only: /.*/
+
+      - test:
+          requires:
+            - lint
+          filters:
+            branches:
+              only: /.*/
+
+      - security-scan:
+          requires:
+            - lint
+          filters:
+            branches:
+              only: /.*/
+
+      - build:
+          requires:
+            - test
+            - security-scan
+          filters:
+            branches:
+              only: /.*/
+
+      # --- Deploy to dev/sandbox: auto on main ---
+      - deploy-dev:
+          requires:
+            - build
+          context:
+            - aws-oidc-dev
+          filters:
+            branches:
+              only: main
+
+      # --- Approval gate: staging ---
+      - approve-staging:
+          type: approval
+          requires:
+            - deploy-dev
+          filters:
+            branches:
+              only: main
+
+      # --- Deploy to staging: after approval ---
+      - deploy-staging:
+          requires:
+            - approve-staging
+          context:
+            - aws-oidc-staging
+          filters:
+            branches:
+              only: main
+
+      # --- Approval gate: production (mandatory) ---
+      - approve-prod:
+          type: approval
+          requires:
+            - deploy-staging
+          filters:
+            branches:
+              only: main
+
+      # --- Deploy to production: after approval ---
+      - deploy-prod:
+          requires:
+            - approve-prod
+          context:
+            - aws-oidc-prod
+          filters:
+            branches:
+              only: main
