@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# CDK synthesized output
+infrastructure/cdk.out/
+
+# Virtual environments
+.venv/
+venv/
+
+# Testing / coverage
+.coverage
+htmlcov/
+coverage-report/
+test-results/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+
+# Ruff cache
+.ruff_cache/
+
+# Pytest cache
+.pytest_cache/

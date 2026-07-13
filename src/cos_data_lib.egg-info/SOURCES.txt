@@ -1,9 +1,0 @@
-pyproject.toml
-src/cos_data_lib/__init__.py
-src/cos_data_lib.egg-info/PKG-INFO
-src/cos_data_lib.egg-info/SOURCES.txt
-src/cos_data_lib.egg-info/dependency_links.txt
-src/cos_data_lib.egg-info/requires.txt
-src/cos_data_lib.egg-info/top_level.txt
-src/glue_scripts/process_csv.py
-tests/test_placeholder.py
