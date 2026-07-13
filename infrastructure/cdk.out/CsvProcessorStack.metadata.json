@@ -1,0 +1,397 @@
+{
+  "/CsvProcessorStack": [
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "Kernel._Kernel_create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:61100)",
+        "Kernel.create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:51863)",
+        "KernelHost.processRequest (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:212493)",
+        "KernelHost.run (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211548)",
+        "Immediate._onImmediate (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211592)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/CsvProcessorStack/Custom::S3AutoDeleteObjectsCustomResourceProvider": [
+    {
+      "type": "aws:cdk:is-custom-resource-handler-customResourceProvider",
+      "data": true
+    }
+  ],
+  "/CsvProcessorStack/ProcessCsvJob": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ProcessCsvJob"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "Kernel._Kernel_create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:61100)",
+        "Kernel.create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:51863)",
+        "KernelHost.processRequest (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:212493)",
+        "KernelHost.run (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211548)",
+        "Immediate._onImmediate (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211592)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/CsvProcessorStack/BootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:542 (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:5420)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:69597)",
+        "Kernel.invoke (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:54153)",
+        "KernelHost.processRequest (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:212493)",
+        "KernelHost.run (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211548)",
+        "Immediate._onImmediate (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211592)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/CsvProcessorStack/CheckBootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CheckBootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:542 (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:5420)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:69597)",
+        "Kernel.invoke (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:54153)",
+        "KernelHost.processRequest (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:212493)",
+        "KernelHost.run (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211548)",
+        "Immediate._onImmediate (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211592)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/CsvProcessorStack/DataBucket/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DataBucketE3889A50"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Bucket2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:61100)",
+        "Kernel.create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:51863)",
+        "KernelHost.processRequest (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:212493)",
+        "KernelHost.run (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211548)",
+        "Immediate._onImmediate (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211592)",
+        "...node internals..."
+      ]
+    },
+    {
+      "type": "aws:cdk:analytics:mixin",
+      "data": {
+        "mixin": "aws-cdk-lib.aws_s3.mixins.BucketAutoDeleteObjects"
+      }
+    }
+  ],
+  "/CsvProcessorStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Bucket2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:61100)",
+        "Kernel.create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:51863)",
+        "KernelHost.processRequest (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:212493)",
+        "KernelHost.run (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211548)",
+        "Immediate._onImmediate (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211592)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/CsvProcessorStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Bucket2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:61100)",
+        "Kernel.create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:51863)",
+        "KernelHost.processRequest (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:212493)",
+        "KernelHost.run (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211548)",
+        "Immediate._onImmediate (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211592)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/CsvProcessorStack/BucketNotificationsHandler050a0587b7544547bf325f094a3db834/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BucketNotificationsHandler050a0587b7544547bf325f094a3db8347ECC3691"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Bucket2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:61100)",
+        "Kernel.create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:51863)",
+        "KernelHost.processRequest (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:212493)",
+        "KernelHost.run (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211548)",
+        "Immediate._onImmediate (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211592)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/CsvProcessorStack/GlueJobRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GlueJobRoleF1B69418"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Role2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:61100)",
+        "Kernel.create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:51863)",
+        "KernelHost.processRequest (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:212493)",
+        "KernelHost.run (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211548)",
+        "Immediate._onImmediate (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211592)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/CsvProcessorStack/TriggerGlueFunction/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "TriggerGlueFunctionCF7714F2"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Function2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:61100)",
+        "Kernel.create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:51863)",
+        "KernelHost.processRequest (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:212493)",
+        "KernelHost.run (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211548)",
+        "Immediate._onImmediate (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211592)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/CsvProcessorStack/CsvUploadRule/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CsvUploadRule22F38F81"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Rule2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:61100)",
+        "Kernel.create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:51863)",
+        "KernelHost.processRequest (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:212493)",
+        "KernelHost.run (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211548)",
+        "Immediate._onImmediate (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211592)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/CsvProcessorStack/CsvUploadRule/AllowEventRuleCsvProcessorStackTriggerGlueFunction6EA57FF6": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CsvUploadRuleAllowEventRuleCsvProcessorStackTriggerGlueFunction6EA57FF607BACDC4"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Rule2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:61100)",
+        "Kernel.create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:51863)",
+        "KernelHost.processRequest (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:212493)",
+        "KernelHost.run (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211548)",
+        "Immediate._onImmediate (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211592)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/CsvProcessorStack/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...App.synth in aws-cdk-lib...",
+        "/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:542 (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:5420)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:69597)",
+        "Kernel.invoke (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:54153)",
+        "KernelHost.processRequest (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:212493)",
+        "KernelHost.run (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211548)",
+        "Immediate._onImmediate (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211592)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/CsvProcessorStack/DataBucket/Policy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DataBucketPolicy3231C704"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Bucket2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:61100)",
+        "Kernel.create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:51863)",
+        "KernelHost.processRequest (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:212493)",
+        "KernelHost.run (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211548)",
+        "Immediate._onImmediate (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211592)",
+        "...node internals..."
+      ]
+    },
+    {
+      "type": "aws:cdk:analytics:mixin",
+      "data": {
+        "mixin": "aws-cdk-lib.aws_s3.mixins.BucketPolicyStatements"
+      }
+    }
+  ],
+  "/CsvProcessorStack/DataBucket/AutoDeleteObjectsCustomResource/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DataBucketAutoDeleteObjectsCustomResource9FB51BF3"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Bucket2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:61100)",
+        "Kernel.create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:51863)",
+        "KernelHost.processRequest (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:212493)",
+        "KernelHost.run (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211548)",
+        "Immediate._onImmediate (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211592)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/CsvProcessorStack/DataBucket/Notifications/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DataBucketNotifications11EB1C2E"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Bucket2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:61100)",
+        "Kernel.create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:51863)",
+        "KernelHost.processRequest (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:212493)",
+        "KernelHost.run (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211548)",
+        "Immediate._onImmediate (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211592)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/CsvProcessorStack/BucketNotificationsHandler050a0587b7544547bf325f094a3db834/Role/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleB6FB88EC"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Bucket2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:61100)",
+        "Kernel.create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:51863)",
+        "KernelHost.processRequest (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:212493)",
+        "KernelHost.run (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211548)",
+        "Immediate._onImmediate (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211592)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/CsvProcessorStack/GlueJobRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GlueJobRoleDefaultPolicy94EFA0CF"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.grantRead in aws-cdk-lib...",
+        "/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:542 (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:5420)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:69597)",
+        "Kernel.invoke (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:54153)",
+        "KernelHost.processRequest (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:212493)",
+        "KernelHost.run (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211548)",
+        "Immediate._onImmediate (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211592)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/CsvProcessorStack/TriggerGlueFunction/ServiceRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "TriggerGlueFunctionServiceRoleDC2B425F"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Function2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:61100)",
+        "Kernel.create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:51863)",
+        "KernelHost.processRequest (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:212493)",
+        "KernelHost.run (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211548)",
+        "Immediate._onImmediate (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211592)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/CsvProcessorStack/BucketNotificationsHandler050a0587b7544547bf325f094a3db834/Role/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleDefaultPolicy2CF63D36"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Bucket2 in aws-cdk-lib...",
+        "Kernel._Kernel_create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:61100)",
+        "Kernel.create (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:51863)",
+        "KernelHost.processRequest (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:212493)",
+        "KernelHost.run (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211548)",
+        "Immediate._onImmediate (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211592)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/CsvProcessorStack/TriggerGlueFunction/ServiceRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "TriggerGlueFunctionServiceRoleDefaultPolicy2DBF4C01"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.addToRolePolicy in aws-cdk-lib...",
+        "/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:542 (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:5420)",
+        "Kernel._Kernel_ensureSync (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:69597)",
+        "Kernel.invoke (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:54153)",
+        "KernelHost.processRequest (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:212493)",
+        "KernelHost.run (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211548)",
+        "Immediate._onImmediate (/private/var/folders/p5/3q5_zx1x5mx6mz5dfk6wq8dh0000gq/T/tmpa7o1ch_h/lib/program.js:1:211592)",
+        "...node internals..."
+      ]
+    }
+  ]
+}

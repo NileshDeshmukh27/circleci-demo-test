@@ -1,0 +1,66 @@
+{
+  "version": "53.0.0",
+  "files": {
+    "faa95a81ae7d7373f3e1f242268f904eb748d8d0fdd306e8a6fe515a1905a7d6": {
+      "displayName": "CsvProcessorStack/Custom::S3AutoDeleteObjectsCustomResourceProvider Code",
+      "source": {
+        "path": "asset.faa95a81ae7d7373f3e1f242268f904eb748d8d0fdd306e8a6fe515a1905a7d6",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "current_account-us-east-1-e650c2de": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-us-east-1",
+          "objectKey": "faa95a81ae7d7373f3e1f242268f904eb748d8d0fdd306e8a6fe515a1905a7d6.zip",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-us-east-1"
+        }
+      }
+    },
+    "b76c3ad5f5546867f2b704762140487d795dccfad4186ab8b621fc036325aba3": {
+      "displayName": "GlueScriptAsset",
+      "source": {
+        "path": "asset.b76c3ad5f5546867f2b704762140487d795dccfad4186ab8b621fc036325aba3.py",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-us-east-1-2f82abde": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-us-east-1",
+          "objectKey": "b76c3ad5f5546867f2b704762140487d795dccfad4186ab8b621fc036325aba3.py",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-us-east-1"
+        }
+      }
+    },
+    "8427e265c68d2716e48ecb2a72acad94ad0945c64c7785c0dd4fada8c79ea566": {
+      "displayName": "TriggerGlueFunction/Code",
+      "source": {
+        "path": "asset.8427e265c68d2716e48ecb2a72acad94ad0945c64c7785c0dd4fada8c79ea566",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "current_account-us-east-1-9e4bd434": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-us-east-1",
+          "objectKey": "8427e265c68d2716e48ecb2a72acad94ad0945c64c7785c0dd4fada8c79ea566.zip",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-us-east-1"
+        }
+      }
+    },
+    "95a60eff21416180694f23a3bbf2d7d51decf9985b018f209e54d6f8643103a0": {
+      "displayName": "CsvProcessorStack Template",
+      "source": {
+        "path": "CsvProcessorStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-us-east-1-981a4bb5": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-us-east-1",
+          "objectKey": "95a60eff21416180694f23a3bbf2d7d51decf9985b018f209e54d6f8643103a0.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

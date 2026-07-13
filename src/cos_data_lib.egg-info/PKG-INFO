@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: cos-data-lib
+Version: 0.1.0
+Summary: COS Data Platform — CSV Processor Pipeline
+Requires-Python: >=3.11
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4; extra == "dev"
+Requires-Dist: pytest-cov>=4.1; extra == "dev"
+Requires-Dist: black>=23.0; extra == "dev"
+Requires-Dist: ruff>=0.1; extra == "dev"
+Requires-Dist: mypy>=1.5; extra == "dev"
+Requires-Dist: moto[glue,s3]>=4.2; extra == "dev"
+Requires-Dist: boto3-stubs[glue,s3]>=1.28; extra == "dev"
+Requires-Dist: aws-cdk-lib>=2.100.0; extra == "dev"
+Requires-Dist: constructs>=10.0.0; extra == "dev"

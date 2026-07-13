@@ -1,0 +1,194 @@
+version: 2.1
+
+orbs:
+  aws-cli: circleci/aws-cli@4.1
+  node: circleci/node@5.2
+
+executors:
+  python-node:
+    docker:
+      - image: cimg/python:3.11-node
+    resource_class: medium
+    working_directory: ~/project
+
+commands:
+  install-python-deps:
+    steps:
+      - restore_cache:
+          keys:
+            - cos-py-deps-v1-{{ checksum "pyproject.toml" }}
+            - cos-py-deps-v1-
+      - run:
+          name: Install Python dependencies
+          command: pip install -e ".[dev]"
+      - save_cache:
+          key: cos-py-deps-v1-{{ checksum "pyproject.toml" }}
+          paths:
+            - ~/.cache/pip
+
+  install-cdk-deps:
+    steps:
+      - restore_cache:
+          keys:
+            - cos-cdk-deps-v1-{{ checksum "infrastructure/requirements.txt" }}
+            - cos-cdk-deps-v1-
+      - run:
+          name: Install AWS CDK CLI
+          command: sudo npm install -g aws-cdk
+      - run:
+          name: Install CDK Python dependencies
+          command: pip install -r infrastructure/requirements.txt
+      - run:
+          name: Install CDK Node dependencies (if present)
+          command: |
+            if [ -f infrastructure/package-lock.json ]; then
+              cd infrastructure && npm ci
+            fi
+      - save_cache:
+          key: cos-cdk-deps-v1-{{ checksum "infrastructure/requirements.txt" }}
+          paths:
+            - ~/.cache/pip
+            - infrastructure/node_modules
+
+  assume-aws-role:
+    steps:
+      - aws-cli/setup:
+          role_arn: ${AWS_ROLE_ARN}
+          region: us-east-1
+          role_session_name: "circleci-cos-data-${CIRCLE_BUILD_NUM}"
+
+  cdk-bootstrap:
+    steps:
+      - run:
+          name: CDK bootstrap
+          command: |
+            cd infrastructure
+            cdk bootstrap aws://${AWS_ACCOUNT_ID}/us-east-1 --ci
+
+  cdk-deploy:
+    steps:
+      - run:
+          name: CDK deploy
+          command: |
+            cd infrastructure
+            cdk deploy --require-approval never --ci --app cdk.out --outputs-file cdk-outputs.json
+      - store_artifacts:
+          path: infrastructure/cdk-outputs.json
+          destination: cdk-outputs
+
+jobs:
+  lint:
+    executor: python-node
+    steps:
+      - checkout
+      - install-python-deps
+      - run:
+          name: Check formatting (black)
+          command: black --check src/ tests/ infrastructure/
+      - run:
+          name: Lint (ruff)
+          command: ruff check src/ tests/ infrastructure/
+      - run:
+          name: Type check (mypy)
+          command: mypy src/ tests/ infrastructure/
+
+  test:
+    executor: python-node
+    steps:
+      - checkout
+      - install-python-deps
+      - run:
+          name: Run pytest (unit + integration + CDK assertions)
+          command: |
+            pytest tests/ \
+              --junitxml=test-results/results.xml \
+              --cov=src/ \
+              --cov-report=html:coverage-report \
+              --cov-report=term-missing
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: coverage-report
+          destination: coverage
+
+  build:
+    executor: python-node
+    steps:
+      - checkout
+      - install-python-deps
+      - install-cdk-deps
+      - run:
+          name: Build cos_data_lib wheel
+          command: pip wheel . --no-deps -w dist/
+      - run:
+          name: CDK synth — validate infrastructure templates
+          command: |
+            cd infrastructure
+            cdk synth --ci --quiet
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+
+  deploy-dev:
+    executor: python-node
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - install-cdk-deps
+      - assume-aws-role
+      - cdk-bootstrap
+      - cdk-deploy
+
+  deploy-prod:
+    executor: python-node
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - install-cdk-deps
+      - assume-aws-role
+      - cdk-bootstrap
+      - cdk-deploy
+
+workflows:
+  build-test-deploy:
+    jobs:
+      - lint:
+          filters:
+            branches:
+              only: /.*/
+      - test:
+          requires:
+            - lint
+          filters:
+            branches:
+              only: /.*/
+      - build:
+          requires:
+            - test
+          filters:
+            branches:
+              only: /.*/
+      - deploy-dev:
+          requires:
+            - build
+          context:
+            - aws-oidc-dev
+          filters:
+            branches:
+              only: main
+      - approve-prod:
+          type: approval
+          requires:
+            - deploy-dev
+          filters:
+            branches:
+              only: main
+      - deploy-prod:
+          requires:
+            - approve-prod
+          context:
+            - aws-oidc-prod
+          filters:
+            branches:
+              only: main
