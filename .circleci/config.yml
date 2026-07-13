@@ -90,7 +90,7 @@ jobs:
           command: ruff check src/ tests/ infrastructure/
       - run:
           name: Type check (mypy)
-          command: mypy src/ tests/ infrastructure/ --exclude 'infrastructure/cdk\.out/'
+          command: mypy src/ tests/
 
   test:
     executor: python-node
